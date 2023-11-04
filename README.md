@@ -1,2 +1,2 @@
 # risk_sharing_dual
-Codes for the paper "Risk-Sharing in a Dual Labor Market"
+Replication codes for the paper "Risk-Sharing in a Dual Labor Market", available at https://drive.google.com/file/d/1uIfHo3iX_uuZ269Shw9JMCkMxDKivpNJ/view.
