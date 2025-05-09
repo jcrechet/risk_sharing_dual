@@ -17,11 +17,11 @@ param_structure.compute_welfare = false;
 b             = .4;               % Shimer  (2005)
 U             = .0561;            % U rate in the US, 1996-2010
 EU            = .02;              % EU rate in the US
-EU_tn         = 3.17;             % separation rates ratio
+sr_tn         = 3.17;             % separation rates ratio
 
 % vecotr
-vector = abs( [ b - agg.b; U - agg.U; EU - agg.EU; EU_tn - agg.EU_tn ] );
-vector = vector./[ b; U; EU; EU_tn ];
+vector = abs( [ b - agg.b; U - agg.U; EU - agg.EU; sr_tn - agg.sr_tn ] );
+vector = vector./[ b; U; EU; sr_tn ];
 
 obj = mean( vector );
 

@@ -52,7 +52,7 @@ jj = jj+1;
 % (note: treated as a parameter when calibrated the benchmark model in partial equil
 % /endogenous when model is solved in gen. equil)
 ind.wr = jj;
-pval(jj) = 0.80;
+pval(jj) = 0.8455;
 pnames{jj} = 'w_R';
 jj = jj+1;
 
@@ -69,7 +69,7 @@ jj = jj+1;
 % model is calibrated/treated as a parameter when conputing gen.
 % equilibrium)
 ind.b = jj;
-pval(jj) = 0.37565;
+pval(jj) = 0.3883;
 pnames{jj} = 'b';
 jj = jj+1;
 
@@ -87,25 +87,25 @@ jj = jj+1;
 
 % efficiency of matching
 ind.A = jj;
-pval(jj) =  0.50;
+pval(jj) =  0.600;
 pnames{jj} = 'A';
 jj = jj+1;
 
 % vacancy posting cost
 ind.kappa = jj;
-pval(jj) = 2.0598;
+pval(jj) = 2.096;
 pnames{jj} = '\\kappa';
 jj = jj+1;
 
 % std of log match quality
 ind.sigma_x = jj;
-pval(jj) = 0.40;
+pval(jj) = 0.205^(1/2);
 pnames{jj} = '\\sigma_x';
 jj = jj+1;
 
 % prob of idiosyncratic pdty shock
 ind.lambda = jj;
-pval(jj) = 0.10;
+pval(jj) = 0.0682;
 pnames{jj} = '\\lambda';
 jj = jj+1;
 

@@ -1199,21 +1199,19 @@ if F==0
         h = n / sum(n);
         sr_tn(itn) = h'*sp;
     end
+
+    % ratio
+    sr_tn = sr_tn(1) / mean(sr_tn(2:L+1));
+
 end
 
-% ratio
-sr_tn = sr_tn(1) / mean(sr_tn(2:L+1));
-
-% tenure adjusted perm-temp differential
-% y = log(wage);
-% L = length(wage);
-% X = double([ones(L,1), perm, ten_yr]);
-% coefs = (X'*X)^(-1)*(X'*y);
-% Wdiff = coefs(2);
-
 % table
-agg_stat = table( U, T, UE, EU, b, sr_tn, wr, UP, PU, TP, TU, T_inflow, T_outflow, T_flow, Ytot, ...
+agg_stat = table( U, T, UE, EU, b, wr, UP, PU, TP, TU, T_inflow, T_outflow, T_flow, Ytot, ...
     Ymn, Wmn, logwmn, b_Wmn, F_Wmn, theta, kkappa, xp, theta, wnew_mn );
+
+if F == 0
+    agg_stat.sr_tn = sr_tn;
+end
 
 if F>0
     agg_stat.xt = xt;

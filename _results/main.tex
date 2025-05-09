@@ -1,0 +1,180 @@
+\documentclass[12pt,letterpaper]{article} % use larger type; default would be 10pt
+
+\usepackage[margin=0.8in]{geometry}
+\linespread{1.25}
+
+\usepackage[sc]{mathpazo}
+
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage{tabu}
+\usepackage{multirow}
+
+\usepackage{amssymb}
+
+\usepackage{epstopdf}
+\usepackage{rotating}
+\usepackage{lscape}
+
+\newcommand\fnsep{\textsuperscript{,}}
+
+%\usepackage{csquotes}
+\usepackage[toc,page]{appendix}
+\usepackage[round]{natbib}
+\usepackage{booktabs}   % for nice tables
+\usepackage{kpfonts}    % for nice fonts
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{listings}   % for inserting code
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{color}  
+\usepackage[colorlinks=true]{hyperref}
+% use for hypertext
+
+% maths
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{tikz}
+\newcommand{\Mypm}{\mathbin{\tikz [x=1.4ex,y=1.4ex,line width=.1ex] \draw (0.0,0) -- (1.0,0) (0.5,0.08) -- (0.5,0.92) (0.0,0.5) -- (1.0,0.5);}}
+\newcommand{\R}{\mathbb{R}} 
+\newtheorem*{mydef}{Definition}
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+\DeclareMathOperator*{\argmax}{arg \, max}
+\DeclareMathOperator*{\argmin}{arg \, min}
+\DeclareMathOperator*{\var}{var}
+\DeclareMathOperator*{\cov}{cov}
+
+% proposition, definition, ...
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{assumption}{Assumption}
+
+\graphicspath{{figures/}}
+
+\usepackage{cleveref} % for clever ref 
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{datetime2}
+\usepackage{qtree}
+
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks   = true,
+	linkcolor    = black,
+	citecolor    = black,
+	urlcolor 	 = black,
+}
+\urlstyle{same}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\author{ \textsc{Jonathan Créchet}\thanks{Department of Economics, University of Ottawa, 75 Laurier Ave E, K1N 9A6, Ontario, Canada; email: jcrechet@uottawa.ca.} }
+
+\title{A Model of Risk Sharing in a Dual Labor Market - Tables and Figures}
+
+\date{October 2024}
+
+\begin{document}
+	
+	\maketitle
+
+	\begin{abstract}
+		In OECD countries, the labor market features a coexistence of open-ended, permanent jobs subject to strict employment protection and fixed-term, temporary jobs. This paper studies a search-and-matching model with risk-averse workers and dynamic employment contracts subject to limited commitment. In equilibrium, permanent and temporary jobs coexist when the match quality is sufficiently dispersed: firing costs generate insurance gains implying that permanent contracts are optimal for high-quality matches. Consistent with recent empirical evidence, quantitative analysis of the model shows that temporary contracts crowd out permanent jobs and do not generate employment gains.
+	\end{abstract}
+	
+	\noindent \textbf{JEL Codes}: E24, J41, J58
+	
+	\smallskip
+	
+	\noindent \textbf{Keywords}: Search frictions, Dynamic contracts, Limited commitment, Employment protection legislation.
+	
+	\newpage
+	
+	\include{tables/benchmark_parameters}
+	
+	\include{tables/targeted_moments}
+	
+	\include{tables/counterfactual_parameters}
+	
+	\include{tables/untargeted_moments}
+	
+	\include{tables/TC_liberalization}
+	
+	\include{tables/flow_decomposition}
+	
+	\include{tables/welfare}
+		
+	\begin{figure}[!h]
+		\centering
+		\begin{subfigure}{0.495\textwidth}
+			\centering
+			\caption{Matching surplus in a PC and a TC}
+			\includegraphics[width=\textwidth]{panel_a.eps}
+			\label{fig:panel_a}
+		\end{subfigure}
+		\begin{subfigure}{0.445\textwidth}
+			\centering
+			\caption{Equilibrium simulated distributions}
+			\includegraphics[width=\textwidth]{panel_b.eps}
+			\label{fig:panel_d}
+		\end{subfigure}
+		\begin{subfigure}{0.475\textwidth}
+			\centering
+			\caption{Matching surplus vs.\ match quality}
+			\includegraphics[width=\textwidth]{panel_c.eps}
+			\label{fig:panel_d}
+		\end{subfigure}
+		\begin{subfigure}{0.475\textwidth}
+			\centering
+			\caption{Matching surplus vs.\ wage}
+			\includegraphics[width=\textwidth]{panel_d.eps}
+			\label{fig:panel_d}
+		\end{subfigure}
+		\caption{Equilibrium outcomes in the ``French'' counterfactual economy}
+		\label{fig:eql_outcomes}
+		\caption*{\footnotesize Notes: Equilibrium policy and distribution functions in the French-type calibrated economy. Panel a): Hiring surplus difference between a PC and a TC in equivalent annuity consumption terms, $(1-\beta) \Delta \mathcal{S}$ (see equation \eqref{surplus_difference}, versus (i) match-quality quantiles associated with the match quality sampling distribution $G_x(x)$ and (ii) the worker's initial matching values $\nu_0$ in terms of the ``target'' hiring wage $w_0$ (Proposition \ref{proposition:choice})  relative to the reservation wage $w_R \equiv u^{-1}\big[ (1-\beta) U\big]$. Panel b): Gaussian kernel density estimates (bandwidth 0.1) of simulated equilibrium distributions and the sampling distribution of the log match quality $g_x$. The vertical lines show hiring cutoffs $\underline{x}_T$, $\underline{x}_P$, and $\hat{x}$ of Proposition \ref{proposition:choice}. Panel c): Hiring surplus difference between contracts, $(1-\beta) \Delta \mathcal{S}$, evaluated at the equilibrium bargained worker's matching value $V_0$ (which satisfies \eqref{eql:V0}, solution to \eqref{eql:barg_pb}), versus match-quality quantiles. The vertical dashed lines show quantiles associated with the hiring cutoffs of Proposition \ref{proposition:choice}. Panel d): Hiring surplus difference evaluated at a match quality fixed to a value in the interval delimited by hiring cutoffs $[x_P, \hat{x}]$, versus the worker's initial matching values $\nu_0$ (and the associated wage). The vertical dashed line shows the worker's bargained matching value satisfying \eqref{eql:V0} in equilibrium.}
+	\end{figure}
+	
+	\newpage
+	
+	\setcounter{table}{0}  
+	\renewcommand{\thetable}{A\arabic{table}}
+	
+	\include{tables/France_vs_US}
+	
+	\include{tables/France_vs_Spain}
+	
+	\newpage
+	
+	\bibliographystyle{chicago}
+	\bibliography{bibliography}
+	
+\end{document}
