@@ -13,7 +13,7 @@ https://doi.org/10.1016/j.jmoneco.2024.103591.
 
 # Instructions
 
-- Unzip folder content in desired working directory;
+- Download repository content and drop in desired working directory;
 - in MATLAB script 'main.m', specify the working directory path;
 - run 'main.m';
 - run latex file '_result/main.tex'.
