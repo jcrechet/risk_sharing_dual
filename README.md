@@ -35,7 +35,7 @@ Scripts:
 
 - 'main': main script.
 - 'calibration': run calibration algorithm, produces results for Tables 1 and 2.
-- 'experiments': run quantitative experiments; results for Tables 4 to 7.
+- 'experiments' and 'flow_decomposition_TC': run quantitative experiments; results for Tables 4 to 7.
 - 'experiments_supplementary': results for Tables A1 and A2 in supplementary paper's appendix.
 - 'tables' and 'figures': produce latex output exported in folder '_results'.
 
