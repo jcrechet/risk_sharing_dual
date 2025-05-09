@@ -16,24 +16,24 @@
 load('workspaces\France.mat')
 p.pval(p.ind.phi0) = 0.55;
 p.equilibrium = 'general';
-[eql, sim, agg_stat, ten_stat] = compute_equilibrium(p);
+[eql, sim, agg_stat] = compute_equilibrium(p);
 disp(agg_stat)
-save('workspaces\counterfactuals\France_1980.mat', 'eql', 'sim', 'agg_stat', 'ten_stat', 'p') 
+save('workspaces\counterfactuals\France_1980.mat', 'eql', 'sim', 'agg_stat', 'p') 
 
 % Spain
 load('workspaces\Spain.mat')
 p.pval(p.ind.phi0) = 0.72;
 p.equilibrium = 'general';
-[eql, sim, agg_stat, ten_stat] = compute_equilibrium(p);
+[eql, sim, agg_stat] = compute_equilibrium(p);
 disp(agg_stat)
-save('workspaces\counterfactuals\Spain_1980.mat', 'eql', 'sim', 'agg_stat', 'ten_stat', 'p')
+save('workspaces\counterfactuals\Spain_1980.mat', 'eql', 'sim', 'agg_stat', 'p')
 disp('experiment: 1980 regulation on temp. contracts done.')
 
 
 %% 2. Decomposition of the effect of temporary contracts on flows
 
 run('flow_decomposition_TC.m')
-disp('experiment: decomposition of the effec of temp. contracts, done.')
+disp('experiment: decomposition of the effect of temp. contracts, done.')
 
 
 %% 3. Firing costs experiments, in baseline

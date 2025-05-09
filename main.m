@@ -4,43 +4,51 @@
 % Matlab script file
 % file name: "main.m"
 % created: 28-10-2020
-% last updated: Oct 2023
+% last updated: 2024
 %
 % Description: main script 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Preamble
+%% 0. Preamble
 clear, clc
 clear global
 
-% specify directory path
+% specify directory and result path
 host = getenv('COMPUTERNAME');
-if strcmp(host,'DESKTOP-LBOSF73') 
-    path = 'D:\Dropbox\Research\Projects\Contracts\Matlab';
-elseif strcmp(host,'DESKTOP-OV023AQ')
-    path = 'C:\Users\jcrechet\Dropbox\Research\Projects\Contracts\Matlab';
-end
 
-% set path
+% SPECIFY COMPUTER NAME AND WORKING DIRECTORY PATH HERE
+
+%if strcmp(host,'[MYCOMPNAME]')
+    
+%    path = '[MYPATH]';
+    
+%end
+
+clearvars host
+
+% set working dir path
 cd(path);
                                                                                                       
 % folder with functions
 addpath('functions');
 
-% parameters
+% set model and algorithms parameters
 p = setparameters;
+
 clearvars host path
 
+%% 1.1. Evaluate model at preset parameter values
 
-%% Evaluate model at preset parameter values
+% start parallel pool using local profile
+parpool('local')
 
-p.pval(p.ind.F) = 0;
+% solve model's equil at user's preset parameter values
 [eql, sim, agg_stat] = compute_equilibrium(p);
 
 % save outcomes
-save('workspaces/Preset.mat','eql','sim','agg_stat', 'p');      
+save('workspaces/Preset.mat','eql','sim','agg_stat', 'p');
 
-% timer
+% show timer
 disp('Computation time (in sec.):')
 disp( eql.time ) 
 
@@ -49,33 +57,34 @@ disp('Simulated stats:')
 disp( agg_stat )
 
 
-%% Calibration
+%% 1.2. Run calibration algo
 run('calibration')
 
 
-%% Baseline calibrated model
+%% 1.3.Solve baseline calibrated model equilibrium
 
-% load calibrated model
+% load calibrated model's outcome (from calibration algo)
 load('workspaces\Baseline.mat')
 
+% show paramater values
 disp('Parameter values:')
 disp( p.ptable )
 
-% run model
+% solve equilibrium at calibrated parameters
 eql = compute_equilibrium(p);
 
-% outcomes
+% show timer and equil outcomes
 disp('Computation time (in sec.):')
 disp( eql.time )
 
 disp('Simulated stats:')
 disp( agg_stat )
 
-% save
+% save outcomes
 save('workspaces\Baseline.mat', 'p', 'eql', 'sim', 'agg_stat')
 
 
-%% Experiments
+%% 2. Experiments
 run('experiments')
 run('experiments_supplementary')
 
@@ -86,3 +95,4 @@ run('tables')
 
 %% Figures
 run('figures')
+

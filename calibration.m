@@ -29,7 +29,7 @@ for k = 1:K
     x_grid(k,:) = lb(k) + (ub(k)-lb(k))*rand(1,nb_draws)';
 end
 
-% evaluate model over random grid
+% evaluate model over random grid (in parallel)
 obj_grid = zeros(nb_draws,1);
 parfor jj = 1:nb_draws
     
@@ -101,17 +101,16 @@ p_baseline.ptable.pval = p_baseline.pval;
 
 % check equilibrium 
 p_baseline.equilibrium = "general";
-[eql, sim, agg_stat, ten_stat] = compute_equilibrium(p_baseline);
+[eql, sim, agg_stat] = compute_equilibrium(p_baseline);
 
 % results
 disp( p_baseline.ptable )
 disp( agg_stat )
-disp( ten_stat )
 
 % save outcomes
 p = p_baseline;
 p.estimate_density = 'histogram';
-save('workspaces/Baseline.mat', 'p', 'eql', 'sim', 'agg_stat', 'ten_stat');
+save('workspaces/Baseline.mat', 'p', 'eql', 'sim', 'agg_stat');
 
 
 %% Calibration to French institutions
@@ -127,7 +126,7 @@ pval(ind.F) = 1.37;                          % (F/Ew = 1.5) Dolado et al. (2011)
 pval(ind.A) = p.pval(ind.A)/2;               % Jung Kuhn (2014)
 pval(ind.phi0) = 0;                          % no hiring regulation on TC
 pval(ind.phi) = 0.045;                       % 3.43% TP probability (Givord (2010))
-pval(ind.delta) = 0.000825;                    % unemployment rate 9.20%
+pval(ind.delta) = 0.000825;                  % unemployment rate 9.20%
 pval(ind.wr) = 0.796943023844906;            % initial guess for reservation wage (set to be equal to wr consistent with calibration)
 
 p_France = p;
@@ -137,7 +136,7 @@ disp(p_France.ptable);
 
 % compute French general equilibrium
 p_France.equilibrium = 'general';
-[eql, sim, agg_stat, ten_stat] = compute_equilibrium(p_France);
+[eql, sim, agg_stat] = compute_equilibrium(p_France);
 
 % display outcomes
 disp('French-style calibrated economy: targeted outcomes')
@@ -163,7 +162,7 @@ disp( agg_stat )
 % save
 p = p_France;
 p.pval(ind.wr) = eql.wr;
-save( 'workspaces\France.mat', 'p', 'eql', 'sim', 'agg_stat', 'ten_stat' )
+save( 'workspaces\France.mat', 'p', 'eql', 'sim', 'agg_stat' )
 
 
 %% Spanish institutions
@@ -190,7 +189,7 @@ disp(p_Spain.ptable);
 % compute Spanish general equilibrium
 disp('General equilibrium')
 p_Spain.equilibrium = 'general';
-[eql, sim, agg_stat, ten_stat] = compute_equilibrium(p_Spain);
+[eql, sim, agg_stat] = compute_equilibrium(p_Spain);
 
 % outcomes
 disp('Spanish-style calibrated economy: targeted outcomes')
@@ -219,4 +218,4 @@ p_Spain.pval(ind.wr) = eql.wr;
 % save
 p = p_Spain;
 p.pval(ind.wr) = eql.wr;
-save('workspaces\Spain.mat', 'p', 'eql', 'sim', 'agg_stat', 'ten_stat' )
+save('workspaces\Spain.mat', 'p', 'eql', 'sim', 'agg_stat' )

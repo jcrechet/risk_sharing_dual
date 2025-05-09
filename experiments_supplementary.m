@@ -56,7 +56,7 @@ for ii = 2:5
     
     % compute equilibrium
     p_US_1{ii-1}.equilibrium = 'general';
-    [~, ~, agg, ~] = compute_equilibrium(p_US_1{ii-1});
+    [~, ~, agg] = compute_equilibrium(p_US_1{ii-1});
     
     % fill in vectors
     U(ii)  = U(ii)-agg.U;
@@ -108,7 +108,7 @@ TU(ii) = TU(ii)-agg_stat_France.TU;
 
 % structures for counterfactual parameters
 % indexes for parameters
-ind = p.ind;
+ind = p_France.ind;
 p_France_1 = cell(4,1);
 for ii = 1:4
     p_France_1{ii} = p_France;
@@ -126,7 +126,7 @@ p_France_1{4}.pval(ind.phi)   = p_Spain.pval(ind.phi);
 for ii = 2:5
     
     % compute equilibrium
-    [~, ~, agg, ~] = compute_equilibrium(p_France_1{ii-1});
+    [~, ~, agg] = compute_equilibrium(p_France_1{ii-1});
     
     % fill in vectors
     U(ii)  = U(ii)-agg.U;
